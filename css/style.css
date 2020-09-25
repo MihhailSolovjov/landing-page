@@ -1,7 +1,7 @@
 :root {
-    --dark-color: #000;
-    --medium-color: #777;
-    --light-color: #fff;
+    --dark-color: rgba(0, 0, 0, 0.87);
+    --medium-color: rgba(119, 119, 119, 0.226);
+    --light-color: rgba(255, 255, 255, 0.877);
 }
 
 * {
@@ -20,8 +20,109 @@ body {
 
 .header {
     height: 95vh;
-    background-image: url('../img/norway.jpg');
+    background-image: linear-gradient(to bottom right,
+    var(--light-color), var(--medium-color)), url('../img/norway.jpg');
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 6%;
+    left: 3%;
+}
+
+.logo {
+    height: 1.7rem;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 5rem;
+    letter-spacing: 1.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 0.6rem;
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.btn-div {
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    color :rgb(180, 157, 157);
+    text-decoration: none;
+    border: 1px solid rgb(83, 80, 80);
+    padding: 1rem;
+    margin: 1rem;
+    opacity: 0;
+    animation-name: btn;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+
+    transition-property: transform;
+    transition-duration: 3s;
+}
+
+.btn:hover {
+    transform: rotateY(180deg);
+}
+
+@keyframes btn {
+    0% {opacity: 0}
+    100% {opacity: 1;}
 }
